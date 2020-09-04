@@ -1,0 +1,47 @@
+#import "~/gql/fragments/Shopify.gql"
+
+#SEE https://help.shopify.com/en/api/storefront-api/reference/queryroot#collections-2019-07
+query Collections($first: Int) {
+  collections(first: $first) {
+    edges {
+      node {
+        title
+        id
+        handle
+      }
+    }
+  }
+}
+
+# SEE https://help.shopify.com/en/api/storefront-api/reference/queryroot#collectionbyhandle-2019-07
+query CollectionByHandle($handle: String!) {
+  collectionByHandle(handle: $handle) {
+    id
+    title
+    handle
+    image {
+      ...productImage
+    }
+    products(first: 25) {
+      edges {
+        node {
+          title
+          id
+          handle
+          availableForSale
+          description(truncateAt: 30)
+          images(first: 5) {
+            edges {
+              node {
+                ...productBlockImage
+              }
+            }
+          }
+          priceRange {
+            ...priceRange
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+#import "~/gql/fragments/Shopify.gql"
+
+# query ProductById($id: ID!) {
+#     node(id: $id) {
+#         id
+#         ... on Product {
+#             title
+#             descriptionHtml
+#             variants(first: 250) {
+#                 edges {
+#                     node {
+#                         price
+#                         title
+#                         availableForSale
+#                         id
+#                         vendor
+#                     }
+#                 }
+#             }
+#         }
+#     }
+# }
+#
+# query Products {
+#     products(first: 99) {
+#         edges {
+#             node {
+#                 id
+#                 title
+#             }
+#         }
+#     }
+# }
+
+# SEE https://help.shopify.com/en/api/storefront-api/reference/interface/node
+query CheckoutById($checkoutId: ID!) {
+  node(id: $checkoutId) {
+    ... on Checkout {
+      ...checkout
+    }
+  }
+}

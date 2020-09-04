@@ -1,0 +1,9 @@
+query Shop {
+  shop {
+    name
+    primaryDomain {
+      url
+      host
+    }
+  }
+}
