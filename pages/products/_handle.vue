@@ -1,5 +1,8 @@
 <template>
   <div class="grid grid-rows-2 md:grid-rows-1 md:grid-cols-4 p-4">
+    <!-- <pre>
+      {{ product }}
+    </pre> -->
     <div class="col-span-2 col-span-2">
       <product-gallery />
     </div>
@@ -12,7 +15,7 @@
 
       <product-pricing />
 
-      <product-options :options="product.options" class="md:w-1/2" />
+      <!-- <product-options :options="product.options" class="md:w-1/2" /> -->
       <add-to-cart />
     </div>
   </div>
@@ -30,25 +33,22 @@ const ProductPricing = () =>
 export default {
   name: "ProductPage",
 
-  components: {
-    AddToCart,
-    ProductOptions,
-    ProductGallery,
-    ProductPricing,
-  },
-
-  created() {
-    
-  },
+  components: { AddToCart, ProductGallery, ProductPricing, ProductOptions },
 
   computed: {
     product() {
       return this.$store.getters["product/product"];
     },
-
     selectedVariant() {
       return this.$store.getters["product/selectedVariant"];
     },
+  },
+
+  created() {
+    this.$store.dispatch(
+      "product/fetchProductByHandle",
+      this.$route.params.handle,
+    );
   },
 };
 </script>
