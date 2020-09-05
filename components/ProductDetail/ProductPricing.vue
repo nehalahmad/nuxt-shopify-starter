@@ -27,7 +27,7 @@ export default {
 
     isOnSale() {
       return isOnSale(this.selectedVariant);
-    },
-  },
+    }
+  }
 };
 </script>

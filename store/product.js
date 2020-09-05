@@ -7,7 +7,7 @@ export const state = () => ({
   loading: false,
   products: [],
   product: {},
-  selectedProductOptions: {},
+  selectedProductOptions: {}
 });
 
 export const mutations = {
@@ -26,7 +26,7 @@ export const mutations = {
     // Load variant.selectedOptions
     let variant = state.product.variants[0];
 
-    variant.selectedOptions.forEach((field) => {
+    variant.selectedOptions.forEach(field => {
       Vue.set(state.selectedProductOptions, field.name, field.value);
     });
   },
@@ -36,7 +36,7 @@ export const mutations = {
   setError(state, error) {
     state.error = error;
     state.loading = false;
-  },
+  }
 };
 
 export const actions = {
@@ -49,8 +49,8 @@ export const actions = {
       const response = await client.query({
         query: ProductByHandle,
         variables: {
-          handle,
-        },
+          handle
+        }
       });
       if (response.networkStatus === 7) {
         commit("setProduct", response.data.productByHandle);
@@ -59,11 +59,11 @@ export const actions = {
     } catch (err) {
       commit("setError", err);
     }
-  },
+  }
 };
 
 export const getters = {
-  product: (state) => state.product,
-  selectedVariant: (state) =>
-    getSelectedVariant(state.product.variants, state.selectedProductOptions),
+  product: state => state.product,
+  selectedVariant: state =>
+    getSelectedVariant(state.product.variants, state.selectedProductOptions)
 };

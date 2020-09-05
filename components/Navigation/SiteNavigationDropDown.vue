@@ -40,7 +40,9 @@
           />
         </div>
         <div class="ml-3">
-          <div class="text-base font-medium leading-6 text-white">Tom Cook</div>
+          <div class="text-base font-medium leading-6 text-white">
+            Tom Cook
+          </div>
           <div class="text-sm font-medium leading-5 text-gray-400">
             tom@example.com
           </div>
@@ -50,18 +52,15 @@
         <a
           href="#"
           class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-          >Your Profile</a
-        >
+          >Your Profile</a>
         <a
           href="#"
           class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-          >Settings</a
-        >
+          >Settings</a>
         <a
           href="#"
           class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-          >Sign out</a
-        >
+          >Sign out</a>
       </div>
     </div>
   </div>

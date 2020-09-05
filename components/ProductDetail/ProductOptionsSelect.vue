@@ -2,26 +2,24 @@
   <div class="py-2">
     <label :for="name">{{ name }}</label>
     <select
-      v-model="selectedOption"
       :id="name"
-      @change="changeOption"
+      v-model="selectedOption"
       class="form-select w-full"
+      @change="changeOption"
     >
-      <option
-        v-for="option in options"
-        :key="option"
-        :value="option"
-      >{{ option }}</option>
+      <option v-for="option in options" :key="option" :value="option">
+        {{ option }}
+      </option>
     </select>
   </div>
 </template>
 
 <script>
-import productOptions from '~/mixins/productOptions';
+import productOptions from "~/mixins/productOptions";
 
 export default {
   name: "ProductOptionSelect",
 
-  mixins: [productOptions],
-}
+  mixins: [productOptions]
+};
 </script>

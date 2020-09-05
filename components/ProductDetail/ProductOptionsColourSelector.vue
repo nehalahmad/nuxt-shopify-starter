@@ -5,44 +5,46 @@
     <div class="flex flex-wrap">
       <label
         v-for="option in options"
-        :for="option"
         :key="option"
+        :for="option"
         :name="option"
         :class="option | lowercase"
       >
         <input
-          v-model="selectedOption"
           :id="option"
+          v-model="selectedOption"
           :value="option"
           type="radio"
           name="option"
-          @change="changeOption"
           class="hidden"
+          @change="changeOption"
         >
-        <div
-          class="layer"
-          :class="tailwindColor(option, 700)"
-        ></div>
+        <div class="layer" :class="tailwindColor(option, 700)" />
         <div class="button inline-block relative h-8 w-8 m-4 cursor-pointer">
           <span
             class="block absolute h-10 w-10 p-0 hover:px-16 rounded-full"
             :class="tailwindColor(option, 500)"
-          ></span>
+          />
         </div>
-        <p
-          :class="{ 'text-gray-700': isSelected(option) }"
-          class="text-center"
-        >{{ option }}</p>
+        <p :class="{ 'text-gray-700': isSelected(option) }" class="text-center">
+          {{ option }}
+        </p>
       </label>
     </div>
   </div>
 </template>
 
 <script>
-import productOptions from '~/mixins/productOptions';
+import productOptions from "~/mixins/productOptions";
 
 export default {
   name: "ProductOptionColourSelector",
+
+  filters: {
+    lowercase(value) {
+      return value.toLowerCase();
+    }
+  },
 
   mixins: [productOptions],
 
@@ -54,24 +56,18 @@ export default {
     tailwindColor(value, lightness) {
       value = value.toLowerCase();
 
-      if (['black', 'white'].includes(value)) {
+      if (["black", "white"].includes(value)) {
         return `bg-${value}`;
       }
 
       return `bg-${value}-${lightness}`;
     }
-  },
-
-  filters: {
-    lowercase(value) {
-      return value.toLowerCase();
-    }
   }
-}
+};
 </script>
 
 <style lang="scss">
-  /**
+/**
   *	Append Product Colours Here to stop PurgeCSS from removing them on production build
   * bg-black
   * bg-blue-500, bg-blue-700,

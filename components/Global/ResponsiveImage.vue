@@ -35,74 +35,74 @@ export default {
   props: {
     image: {
       type: Object,
-      default: () => {},
+      default: () => {}
     },
     height: {
       type: Number,
-      default: null,
+      default: null
     },
     width: {
       type: Number,
-      default: null,
+      default: null
     },
     src: {
       type: String,
-      default: "",
+      default: ""
     },
     alt: {
       type: String,
-      default: "",
+      default: ""
     },
     aspectRatio: {
       type: Number,
-      default: null,
+      default: null
     },
     objectFit: {
       type: String,
-      default: "cover",
+      default: "cover"
     },
     mode: {
       type: String,
-      default: "intrinsic-ratio",
+      default: "intrinsic-ratio"
     },
     backgroundColor: {
       type: String,
-      default: "",
+      default: ""
     },
     videoUrl: {
       type: String,
-      default: "",
+      default: ""
     },
     loop: {
       type: Boolean,
-      default: true,
+      default: true
     },
     autoplay: {
       type: Boolean,
-      default: true,
+      default: true
     },
     muted: {
       type: Boolean,
-      default: true,
+      default: true
     },
     playsinline: {
       type: Boolean,
-      default: true,
+      default: true
     },
     srcset: {
       type: String,
-      default: "",
+      default: ""
     },
     focalPoint: {
       type: Object,
-      default: () => {},
-    },
+      default: () => {}
+    }
   },
   data() {
     return {
       loadedStatus: {
-        booted: false,
-      },
+        booted: false
+      }
     };
   },
   computed: {
@@ -111,7 +111,7 @@ export default {
         "responsive-image",
         `mode-${this.mode}`,
         { "has-loaded": this.hasLoaded },
-        { "has-background-color": this.backgroundColor },
+        { "has-background-color": this.backgroundColor }
       ];
     },
     aspectPadding() {
@@ -150,7 +150,7 @@ export default {
           _get(this.image, "acfImageMeta.focalPointX", ""),
         y:
           _get(this, "focalPoint.y", false) ||
-          _get(this.image, "acfImageMeta.focalPointY", ""),
+          _get(this.image, "acfImageMeta.focalPointY", "")
       };
     },
     sizerStyles() {
@@ -170,7 +170,7 @@ export default {
     },
     mediaStyles() {
       let styles = {
-        objectFit: this.objectFit,
+        objectFit: this.objectFit
       };
 
       if (this.parsedFocalPoint.x !== "" && this.parsedFocalPoint.y !== "") {
@@ -182,7 +182,7 @@ export default {
     hasLoaded() {
       // Check if all are true. To handle if we have a video and an image.
       return Object.values(this.loadedStatus).every(Boolean);
-    },
+    }
   },
   watch: {
     // Update loaded state if new src set
@@ -196,7 +196,7 @@ export default {
       if (newVal) {
         Vue.set(this.loadedStatus, "image", false);
       }
-    },
+    }
   },
   mounted() {
     // Setup loaded state tracking
@@ -225,8 +225,8 @@ export default {
       if (this.$refs.video) {
         this.$refs.video.pause();
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

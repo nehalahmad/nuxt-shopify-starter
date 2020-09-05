@@ -65,25 +65,25 @@ export default {
     shopifySelectVariant,
     shopifySelectQuantity,
     shopifyAddToCart,
-    shopifyPrice,
+    shopifyPrice
   },
   transition: "fade",
   data() {
     return {
       selectedVariant: {},
-      selectedQuantity: 1,
+      selectedQuantity: 1
     };
   },
   computed: {
     images() {
       let images = _get(this, "product.images.edges", []);
       if (images) {
-        return images.map((image) => image.node);
+        return images.map(image => image.node);
       }
     },
     variants() {
       return _get(this, "product.variants.edges", []);
-    },
+    }
   },
   methods: {
     setVariant(variant) {
@@ -91,7 +91,7 @@ export default {
     },
     setQuantity(quantity) {
       this.selectedQuantity = Number(quantity);
-    },
+    }
   },
   apollo: {
     product: {
@@ -99,14 +99,14 @@ export default {
       query: ProductByHandle,
       variables() {
         return {
-          handle: this.$route.params.product,
+          handle: this.$route.params.product
         };
       },
       update(data) {
         return _get(data, "productByHandle", {});
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>
 

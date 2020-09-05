@@ -5,15 +5,15 @@ import _kebabCase from "lodash/kebabCase";
 const components = require.context(
   "~/components/Global",
   false,
-  /[A-Z]\w+\.(vue)$/,
+  /[A-Z]\w+\.(vue)$/
 );
-components.keys().map((fileName) => {
+components.keys().map(fileName => {
   // Get component config
   const componentConfig = components(fileName);
 
   // Turn './ComponentName.vue' into 'component-name'
   const componentName = _kebabCase(
-    fileName.replace(/^\.\//, "").replace(/\.vue$/, ""),
+    fileName.replace(/^\.\//, "").replace(/\.vue$/, "")
   );
 
   // Register new component globally

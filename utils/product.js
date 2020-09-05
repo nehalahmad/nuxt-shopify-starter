@@ -43,5 +43,5 @@ export const productCardShopifyImage = images => {
 };
 
 const noImagesAvailableURL = () => {
-  return "" // require("~/assets/images/no-image-available.svg");
+  return ""; // require("~/assets/images/no-image-available.svg");
 };

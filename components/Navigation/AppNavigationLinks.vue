@@ -40,9 +40,8 @@
 
 <script>
 export default {
-  props: {},
-
   components: {},
+  props: {},
 
   data() {
     return {};
@@ -50,6 +49,6 @@ export default {
 
   computed: {},
 
-  methods: {},
+  methods: {}
 };
 </script>

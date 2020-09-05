@@ -9,7 +9,9 @@
 
     <div class="col-span-2">
       <div>
-        <h1 class="text-4xl font-bold">{{ product.title }}</h1>
+        <h1 class="text-4xl font-bold">
+          {{ product.title }}
+        </h1>
         <p>{{ product.description }}</p>
       </div>
 
@@ -41,14 +43,14 @@ export default {
     },
     selectedVariant() {
       return this.$store.getters["product/selectedVariant"];
-    },
+    }
   },
 
   created() {
     this.$store.dispatch(
       "product/fetchProductByHandle",
-      this.$route.params.handle,
+      this.$route.params.handle
     );
-  },
+  }
 };
 </script>

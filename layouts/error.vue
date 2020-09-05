@@ -14,7 +14,9 @@
         />
       </svg>
 
-      <div class="title">{{ message }}</div>
+      <div class="title">
+        {{ message }}
+      </div>
       <p v-if="statusCode === 404" class="description">
         Back to <a href="/" class="error-link">safety</a>
       </p>
@@ -31,6 +33,14 @@ export default {
       default: null
     }
   },
+  computed: {
+    statusCode() {
+      return (this.error && this.error.statusCode) || 500;
+    },
+    message() {
+      return this.error.message || `<%= messages.client_error %>`;
+    }
+  },
   head() {
     return {
       title: this.message,
@@ -42,14 +52,6 @@ export default {
         }
       ]
     };
-  },
-  computed: {
-    statusCode() {
-      return (this.error && this.error.statusCode) || 500;
-    },
-    message() {
-      return this.error.message || `<%= messages.client_error %>`;
-    }
   }
 };
 </script>
