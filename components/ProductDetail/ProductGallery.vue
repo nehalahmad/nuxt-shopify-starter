@@ -22,7 +22,7 @@ export default {
 
     hasImage() {
       return this.selectedVariant && this.selectedVariant.image;
-    }
-  }
+    },
+  },
 };
 </script>

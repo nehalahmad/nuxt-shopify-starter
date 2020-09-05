@@ -1,4 +1,4 @@
-const bodyParser = require("body-parser");
+import bodyParser from "body-parser";
 
 export default {
   mode: "universal",
@@ -14,17 +14,17 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: process.env.npm_package_description || ""
-      }
+        content: process.env.npm_package_description || "",
+      },
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "stylesheet",
         href:
-          "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
-      }
-    ]
+          "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap",
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
@@ -42,7 +42,7 @@ export default {
    */
   plugins: [
     { src: "~/plugins/global-component-loader.js" },
-    { src: "~/plugins/google-gtag.client.js", mode: "client" }
+    { src: "~/plugins/google-gtag.client.js", mode: "client" },
     //{ src: "~/plugins/shopify.js", mode: "client" }
   ],
   build: {
@@ -56,10 +56,10 @@ export default {
           enforce: "pre",
           test: /\.(js|vue)$/,
           loader: "eslint-loader",
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
         });
       }
-    }
+    },
   },
   /*
    ** Nuxt.js dev-modules
@@ -74,9 +74,9 @@ export default {
       "nuxt-vuex-localstorage",
       {
         localStorage: ["shopify"],
-        mode: "debug"
-      }
-    ]
+        mode: "debug",
+      },
+    ],
   ],
 
   /*
@@ -92,10 +92,10 @@ export default {
             "Content-Type": "application/json",
             "X-Shopify-Storefront-Access-Token":
               process.env.SHOPIFY_ACCESS_TOKEN,
-            Accept: "application/json"
-          }
+            Accept: "application/json",
+          },
         },
-        persist: false
+        persist: false,
       },
       shopify: {
         httpEndpoint: process.env.HTTP_END_POINT,
@@ -103,12 +103,12 @@ export default {
           headers: {
             "Content-Type": "application/json",
             "X-Shopify-Storefront-Access-Token":
-              process.env.SHOPIFY_ACCESS_TOKEN
-          }
+              process.env.SHOPIFY_ACCESS_TOKEN,
+          },
         },
-        persisting: false
-      }
-    }
+        persisting: false,
+      },
+    },
   },
   pageTransition: { name: "fade", mode: "out-in" },
   serverMiddleware: [bodyParser.json(), "@api"],
@@ -117,6 +117,6 @@ export default {
    */
   router: {
     linkExactActiveClass: "exact-active-link",
-    linkActiveClass: "active-link"
-  }
+    linkActiveClass: "active-link",
+  },
 };

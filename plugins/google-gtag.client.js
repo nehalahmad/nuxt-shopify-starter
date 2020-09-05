@@ -42,7 +42,7 @@ export default ({ store, app: { router, context } }, inject) => {
   // Add tracking codes from Vuex store
   codes.forEach(code => {
     gtag("config", code, {
-      send_page_view: false // Necessary to avoid duplicated page track on first page load
+      send_page_view: false, // Necessary to avoid duplicated page track on first page load
     });
 
     // After each router transition, log page event to Google for each code

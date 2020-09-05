@@ -12,7 +12,7 @@ import { CheckoutById } from "~/gql/queries/Shopify.gql";
 import {
   stripLineItems,
   simplifyLineItems,
-  formatMoney
+  formatMoney,
 } from "~/utils/Shopify.js";
 
 // Define State defaults
@@ -21,15 +21,15 @@ export const state = () => ({
   checkout: {
     id: "",
     webUrl: "",
-    completedAt: null
+    completedAt: null,
   },
   cart: {
     count: 0,
     subTotal: {},
-    lineItems: []
+    lineItems: [],
   },
   expire: 24 * 60, // 60 days
-  version: 1
+  version: 1,
 });
 
 // Define mutations
@@ -61,15 +61,15 @@ export const mutations = {
     Vue.set(state, "checkout", {
       id: "",
       webUrl: "",
-      completedAt: null
+      completedAt: null,
     });
 
     Vue.set(state, "cart", {
       count: 0,
       subTotal: {},
-      lineItems: []
+      lineItems: [],
     });
-  }
+  },
 };
 
 // Define actions
@@ -78,7 +78,7 @@ export const actions = {
   // This will create a checkout if you don't have one.
   async ADD_TO_CART({ state, commit, dispatch }, { variantId, quantity }) {
     commit("START_LOADING");
-    let client = this.app.apolloProvider.clients.shopify;
+    // let client = this.app.apolloProvider.clients.shopify;
 
     if (!state.checkout.id) {
       // If we don't have a checkout ID, create one (which also adds variant to cart)
@@ -102,7 +102,7 @@ export const actions = {
         // Add new variant to cart
         lineItems.push({
           variant: { id: variantId },
-          quantity: quantity
+          quantity: quantity,
         });
       }
 
@@ -114,7 +114,7 @@ export const actions = {
   },
 
   // Creates a checkout in Shopify, and then stores the results as checkout and cart
-  async CREATE_CHECKOUT({ state, commit }, { variantId, quantity }) {
+  async CREATE_CHECKOUT({ commit }, { variantId, quantity }) {
     commit("START_LOADING");
     let client = this.app.apolloProvider.clients.shopify;
 
@@ -122,8 +122,8 @@ export const actions = {
       mutation: CheckoutCreate,
       variables: {
         variantId: variantId,
-        quantity: quantity
-      }
+        quantity: quantity,
+      },
     });
 
     commit("SET_CHECKOUT", _get(checkout, "data.checkoutCreate.checkout", {}));
@@ -133,7 +133,7 @@ export const actions = {
 
   // This allows you to set quantity of multple line items at once. Useful for cart pages.
   // To remove a product, set its quantity to 0
-  async SET_QUANTITY({ state, dispatch }, lineItems) {
+  async SET_QUANTITY({ dispatch }, lineItems) {
     // Accept a single line item, or multple in an array
     if (typeof lineItems === "object") {
       lineItems = [lineItems];
@@ -157,8 +157,8 @@ export const actions = {
       mutation: ReplaceCheckout,
       variables: {
         checkoutId: state.checkout.id,
-        lineItems: lineItems
-      }
+        lineItems: lineItems,
+      },
     });
 
     commit(
@@ -181,8 +181,8 @@ export const actions = {
       const response = await client.query({
         query: CheckoutById,
         variables: {
-          checkoutId: state.checkout.id
-        }
+          checkoutId: state.checkout.id,
+        },
       });
 
       // Check that this checkout wasn't completed already
@@ -198,7 +198,7 @@ export const actions = {
     }
 
     commit("FINISH_LOADING");
-  }
+  },
 };
 
 // Define some getters here
@@ -213,5 +213,5 @@ export const getters = {
     }
 
     return output;
-  }
+  },
 };

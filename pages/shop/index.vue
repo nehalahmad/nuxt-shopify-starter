@@ -33,11 +33,11 @@ import shopifyBlockProduct from "~/components/shopify/BlockProduct";
 export default {
   transition: "fade",
   components: {
-    shopifyBlockProduct
+    shopifyBlockProduct,
   },
   data() {
     return {
-      collectionHandle: "frontpage"
+      collectionHandle: "frontpage",
     };
   },
   computed: {
@@ -47,7 +47,7 @@ export default {
     products() {
       let products = _get(this, "collection.products.edges", []);
       return products.map(product => product.node);
-    }
+    },
   },
   mounted() {
     // TODO Fire off a this.gtag() for the view_item_list of all products
@@ -59,14 +59,14 @@ export default {
       query: CollectionByHandle,
       variables() {
         return {
-          handle: this.collectionHandle
+          handle: this.collectionHandle,
         };
       },
       update(data) {
         return _get(data, "collectionByHandle", {});
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 

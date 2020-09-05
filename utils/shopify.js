@@ -17,7 +17,7 @@ export const simplifyLineItems = items => {
   return items.map(obj => {
     return {
       variantId: obj.variantId || obj.variant.id,
-      quantity: obj.quantity
+      quantity: obj.quantity,
     };
   });
 };

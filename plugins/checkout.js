@@ -11,9 +11,9 @@ export default ({ app }, inject) => {
     setCheckoutId: checkoutId => {
       app.$cookies.set("checkoutId", checkoutId, {
         path: "/",
-        maxAge: 60 * 60 * 24 * 7
+        maxAge: 60 * 60 * 24 * 7,
       });
-    }
+    },
   };
 
   inject("checkout", checkout);

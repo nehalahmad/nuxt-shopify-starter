@@ -25,8 +25,8 @@
 
 <script>
 const AddToCart = () => import("~/components/ProductDetail/AddToCartButton");
-const ProductOptions = () =>
-  import("~/components/ProductDetail/ProductOptions");
+// const ProductOptions = () =>
+//   import("~/components/ProductDetail/ProductOptions");
 const ProductGallery = () =>
   import("~/components/ProductDetail/ProductGallery");
 const ProductPricing = () =>
@@ -35,7 +35,7 @@ const ProductPricing = () =>
 export default {
   name: "ProductPage",
 
-  components: { AddToCart, ProductGallery, ProductPricing, ProductOptions },
+  components: { AddToCart, ProductGallery, ProductPricing /*ProductOptions*/ },
 
   computed: {
     product() {
@@ -43,7 +43,7 @@ export default {
     },
     selectedVariant() {
       return this.$store.getters["product/selectedVariant"];
-    }
+    },
   },
 
   created() {
@@ -51,6 +51,6 @@ export default {
       "product/fetchProductByHandle",
       this.$route.params.handle
     );
-  }
+  },
 };
 </script>

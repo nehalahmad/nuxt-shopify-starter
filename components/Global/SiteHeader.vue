@@ -37,14 +37,14 @@ const AppNavigationLinks = () =>
 
 export default {
   components: {
-    appNavigation: AppNavigationLinks
+    appNavigation: AppNavigationLinks,
   },
   apollo: {
     shop: {
       client: "shopify",
-      query: Shop
-    }
-  }
+      query: Shop,
+    },
+  },
 };
 </script>
 

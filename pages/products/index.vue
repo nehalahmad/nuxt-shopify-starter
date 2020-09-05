@@ -7,7 +7,7 @@
         <nuxt-link
           :to="{
             name: 'products-handle',
-            params: { handle: product.node.handle }
+            params: { handle: product.node.handle },
           }"
         >
           {{ product.node.title }}
@@ -29,8 +29,8 @@ export default {
       query: Products,
       update(data) {
         return _get(data, "products.edges", []);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

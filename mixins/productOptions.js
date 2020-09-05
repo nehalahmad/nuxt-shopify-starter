@@ -1,12 +1,12 @@
 export default {
   props: {
     name: { required: true, type: String },
-    options: { required: true, type: Array }
+    options: { required: true, type: Array },
   },
 
   data() {
     return {
-      selectedOption: Array.from(this.options)[0]
+      selectedOption: Array.from(this.options)[0],
     };
   },
 
@@ -19,8 +19,8 @@ export default {
     changeOption() {
       this.$emit("update-product-option", {
         key: this.name,
-        value: this.selectedOption
+        value: this.selectedOption,
       });
-    }
-  }
+    },
+  },
 };

@@ -33,16 +33,16 @@ export default {
   props: {
     variants: {
       type: [Object, Array],
-      default: () => {}
+      default: () => {},
     },
     selectFirst: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
-      selectedId: ""
+      selectedId: "",
     };
   },
   computed: {
@@ -50,7 +50,7 @@ export default {
       return [
         "shopify-select-variant",
         { "has-one-variant": this.stripedVariants.length == 1 },
-        { "is-selected": this.selectedId }
+        { "is-selected": this.selectedId },
       ];
     },
     stripedVariants() {
@@ -60,12 +60,12 @@ export default {
     },
     forAttr() {
       return _uniqueId("select-quantity-");
-    }
+    },
   },
   watch: {
     selectedId(newVal, oldVal) {
       this.selectChange();
-    }
+    },
   },
   mounted() {
     // If selectFirst
@@ -77,11 +77,11 @@ export default {
     selectChange() {
       // Return the entire sleected varient object
       const selectedVariant = _find(this.stripedVariants, {
-        id: this.selectedId
+        id: this.selectedId,
       });
       this.$emit("selected-variant", selectedVariant);
-    }
-  }
+    },
+  },
 };
 </script>
 

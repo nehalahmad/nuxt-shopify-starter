@@ -29,8 +29,8 @@ export const productGalleryImages = images => {
     : [
         {
           src: noImagesAvailableURL(),
-          alt: "No Image Available"
-        }
+          alt: "No Image Available",
+        },
       ];
 };
 

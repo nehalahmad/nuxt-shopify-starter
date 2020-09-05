@@ -38,13 +38,13 @@ export default {
   computed: {
     open() {
       return this.$store.getters["navigation/isOpen"];
-    }
+    },
   },
 
   methods: {
     toggleNavigation() {
       this.$store.commit("navigation/toggleExpansion");
-    }
-  }
+    },
+  },
 };
 </script>

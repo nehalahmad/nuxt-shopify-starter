@@ -13,7 +13,7 @@ import { Collections } from "~/gql/queries/Collection.gql";
 
 export default {
   data: () => ({
-    count: 20
+    count: 20,
   }),
   apollo: {
     collections: {
@@ -24,8 +24,8 @@ export default {
       },
       update(data) {
         return _get(data, "collections.edges", []);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

@@ -21,17 +21,17 @@ export default {
   props: {
     to: {
       type: String,
-      default: "/cart"
-    }
+      default: "/cart",
+    },
   },
   computed: {
     classes() {
       return [
         "shopify-mini-cart",
-        { "is-empty": !this.$store.state.shopify.cart.count }
+        { "is-empty": !this.$store.state.shopify.cart.count },
       ];
-    }
-  }
+    },
+  },
 };
 </script>
 

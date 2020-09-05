@@ -31,34 +31,34 @@ export default {
   props: {
     to: {
       type: String,
-      default: ""
+      default: "",
     },
     images: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     description: {
       type: String,
-      default: ""
+      default: "",
     },
     price: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     isAvailable: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   computed: {
     classes() {
       return [
         "shopify-block-product",
-        { "not-unavailable": !this.isAvailable }
+        { "not-unavailable": !this.isAvailable },
       ];
     },
     imageSrc() {
@@ -73,8 +73,8 @@ export default {
         output = formatMoney(this.price.amount, this.price.currencyCode);
       }
       return output;
-    }
-  }
+    },
+  },
 };
 </script>
 

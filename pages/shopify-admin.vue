@@ -18,6 +18,6 @@ export default {
     );
 
     window.location = `${gqlEndpoint.split("/api")[0]}/admin`;
-  }
+  },
 };
 </script>

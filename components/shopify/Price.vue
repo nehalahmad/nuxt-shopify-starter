@@ -29,23 +29,23 @@ export default {
   props: {
     priceRange: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     variantPrice: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     variantSalePrice: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   computed: {
     classes() {
       return [
         "shopify-price",
         { "on-sale": this.onSale },
-        { "has-range": this.hasRange }
+        { "has-range": this.hasRange },
       ];
     },
     formattedPriceRange() {
@@ -57,7 +57,7 @@ export default {
         max: formatMoney(
           this.priceRange.maxVariantPrice.amount,
           this.priceRange.maxVariantPrice.currencyCode
-        )
+        ),
       };
     },
     formattedVariantPrice() {
@@ -85,8 +85,8 @@ export default {
     },
     onSale() {
       return Boolean(this.formattedVariantSalePrice);
-    }
-  }
+    },
+  },
 };
 </script>
 

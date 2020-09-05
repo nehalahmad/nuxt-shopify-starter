@@ -18,7 +18,7 @@
           name="option"
           class="hidden"
           @change="changeOption"
-        >
+        />
         <div class="layer" :class="tailwindColor(option, 700)" />
         <div class="button inline-block relative h-8 w-8 m-4 cursor-pointer">
           <span
@@ -43,7 +43,7 @@ export default {
   filters: {
     lowercase(value) {
       return value.toLowerCase();
-    }
+    },
   },
 
   mixins: [productOptions],
@@ -61,8 +61,8 @@ export default {
       }
 
       return `bg-${value}-${lightness}`;
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -31,11 +31,11 @@ export default {
 
   components: {
     ProductOptionColourSelector,
-    ProductOptionSelect
+    ProductOptionSelect,
   },
 
   props: {
-    options: { required: true, type: Array }
+    options: { required: true, type: Array },
   },
 
   computed: {
@@ -46,20 +46,20 @@ export default {
             name: option.name,
             values: option.values.map(o => {
               return o.value;
-            })
+            }),
           };
         })
         .sort((a, b) => {
           return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
         });
-    }
+    },
   },
 
   methods: {
     onProductOptionUpdate({ key, value }) {
       this.$store.dispatch("product/updateSelectedProductionOptions", {
         key,
-        value
+        value,
       });
     },
 
@@ -68,7 +68,7 @@ export default {
         fieldname.toUpperCase() === "COLOUR" ||
         fieldname.toUpperCase() === "COLOR"
       );
-    }
-  }
+    },
+  },
 };
 </script>

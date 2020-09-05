@@ -20,6 +20,6 @@ import productOptions from "~/mixins/productOptions";
 export default {
   name: "ProductOptionSelect",
 
-  mixins: [productOptions]
+  mixins: [productOptions],
 };
 </script>

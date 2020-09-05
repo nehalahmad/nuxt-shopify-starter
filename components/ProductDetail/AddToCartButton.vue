@@ -23,16 +23,16 @@ export default {
       return !!(
         this.selectedVariant && this.selectedVariant.available === true
       );
-    }
+    },
   },
 
   methods: {
     addToCart() {
       this.$store.dispatch("checkout/addLineItem", {
         selectedVariantId: this.selectedVariant["id"],
-        quantity: 1
+        quantity: 1,
       });
-    }
-  }
+    },
+  },
 };
 </script>

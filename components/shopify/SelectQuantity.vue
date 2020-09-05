@@ -21,19 +21,19 @@ import _uniqueId from "lodash/uniqueId";
 export default {
   data() {
     return {
-      quantity: 1
+      quantity: 1,
     };
   },
   computed: {
     forAttr() {
       return _uniqueId("select-quantity-");
-    }
+    },
   },
   methods: {
     selectChange() {
       this.$emit("selected-quantity", this.quantity);
-    }
-  }
+    },
+  },
 };
 </script>
 

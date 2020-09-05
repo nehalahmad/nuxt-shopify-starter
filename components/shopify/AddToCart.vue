@@ -17,50 +17,50 @@ export default {
   props: {
     variantId: {
       type: String,
-      default: ""
+      default: "",
     },
     quantity: {
       type: Number,
-      default: 1
+      default: 1,
     },
     isAvailable: {
       type: Boolean,
-      default: true
+      default: true,
     },
 
     // All props below this are used for gtag tracking purposes only, not required if that's not important to you
     productTitle: {
       type: String,
-      default: ""
+      default: "",
     },
     variantTitle: {
       type: String,
-      default: ""
+      default: "",
     },
     vendor: {
       type: String,
-      default: ""
+      default: "",
     },
     price: {
       type: [Number, String],
-      default: ""
+      default: "",
     },
     listName: {
       type: String,
-      default: "Product detail page"
+      default: "Product detail page",
     },
     listPosition: {
       type: Number,
-      default: 1
+      default: 1,
     },
     collection: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
-      loading: false
+      loading: false,
     };
   },
   computed: {
@@ -68,9 +68,9 @@ export default {
       return [
         "shopify-add-to-cart",
         this.loading,
-        { "not-available": !this.isAvailable }
+        { "not-available": !this.isAvailable },
       ];
-    }
+    },
   },
   methods: {
     async updateCart() {
@@ -79,7 +79,7 @@ export default {
       try {
         await this.$store.dispatch("shopify/ADD_TO_CART", {
           variantId: this.variantId,
-          quantity: this.quantity
+          quantity: this.quantity,
         });
 
         this.$emit("added-to-cart");
@@ -96,9 +96,9 @@ export default {
               variant: this.variantTitle,
               list_position: this.listPosition,
               quantity: this.quantity,
-              price: this.price
-            }
-          ]
+              price: this.price,
+            },
+          ],
         });
       } catch (e) {
         this.$emit("error", e);
@@ -106,8 +106,8 @@ export default {
       }
 
       this.loading = false;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -5,7 +5,6 @@
     <div class="images">
       <img
         v-for="(image, i) in images"
-        v-if="image.transformedSrc"
         :key="i"
         class="image"
         :src="image.transformedSrc"
@@ -65,13 +64,13 @@ export default {
     shopifySelectVariant,
     shopifySelectQuantity,
     shopifyAddToCart,
-    shopifyPrice
+    shopifyPrice,
   },
   transition: "fade",
   data() {
     return {
       selectedVariant: {},
-      selectedQuantity: 1
+      selectedQuantity: 1,
     };
   },
   computed: {
@@ -83,7 +82,7 @@ export default {
     },
     variants() {
       return _get(this, "product.variants.edges", []);
-    }
+    },
   },
   methods: {
     setVariant(variant) {
@@ -91,7 +90,7 @@ export default {
     },
     setQuantity(quantity) {
       this.selectedQuantity = Number(quantity);
-    }
+    },
   },
   apollo: {
     product: {
@@ -99,14 +98,14 @@ export default {
       query: ProductByHandle,
       variables() {
         return {
-          handle: this.$route.params.product
+          handle: this.$route.params.product,
         };
       },
       update(data) {
         return _get(data, "productByHandle", {});
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 

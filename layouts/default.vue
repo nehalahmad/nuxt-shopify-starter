@@ -14,16 +14,16 @@
 
 <script>
 // Components
-import shopifyMiniCart from "~/components/shopify/MiniCart";
+// import shopifyMiniCart from "~/components/shopify/MiniCart";
 
 export default {
   components: {
-    shopifyMiniCart
+    // shopifyMiniCart
   },
   mounted() {
     // Check that our checkout hasn't completed
     this.$store.dispatch("shopify/GET_CHECKOUT");
-  }
+  },
 };
 </script>
 

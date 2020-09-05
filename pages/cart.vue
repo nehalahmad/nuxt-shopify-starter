@@ -19,6 +19,6 @@ export default {
     await this.$store.dispatch("shopify/GET_CHECKOUT");
 
     // NOTE Maybe this should be an Apollo query?
-  }
+  },
 };
 </script>
