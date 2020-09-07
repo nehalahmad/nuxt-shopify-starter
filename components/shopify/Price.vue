@@ -1,24 +1,20 @@
 <template>
   <div :class="classes">
     <span v-if="formattedVariantPrice" class="price price-variant">
-      <span
-        v-if="formattedVariantSalePrice"
-        class="sale"
-        v-html="formattedVariantSalePrice"
-      />
-      <span class="full-price" v-html="formattedVariantPrice" />
+      <span v-if="formattedVariantSalePrice" class="sale">{{
+        formattedVariantSalePrice
+      }}</span>
+      <span class="full-price">{{ formattedVariantPrice }}</span>
     </span>
 
     <span v-else-if="hasRange" class="price price-product price-range">
-      <span class="min" v-html="formattedPriceRange.min" /> -
-      <span class="max" v-html="formattedPriceRange.max" />
+      <span class="min">{{ formattedPriceRange.min }}</span> -
+      <span class="max">{{ formattedPriceRange.max }}</span>
     </span>
 
-    <span
-      v-else
-      class="price price-product no-range"
-      v-html="formattedPriceRange.max"
-    />
+    <span v-else class="price price-product no-range">
+      {{ formattedPriceRange.max }}
+    </span>
   </div>
 </template>
 

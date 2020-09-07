@@ -13,7 +13,9 @@
     </div>
 
     <div class="content">
-      <h2 class="title" v-html="product.title" />
+      <h2 class="title">
+        {{ product.title }}
+      </h2>
 
       <shopify-price
         :price-range="product.priceRange"
@@ -41,7 +43,9 @@
         :price="selectedVariant.price"
       />
 
-      <div class="description" v-html="product.descriptionHtml" />
+      <div class="description">
+        {{ product.descriptionHtml }}
+      </div>
     </div>
   </section>
 </template>
@@ -79,6 +83,7 @@ export default {
       if (images) {
         return images.map(image => image.node);
       }
+      return [];
     },
     variants() {
       return _get(this, "product.variants.edges", []);

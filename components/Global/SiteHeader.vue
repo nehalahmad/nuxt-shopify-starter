@@ -10,7 +10,7 @@
               active-class=""
               exact
             >
-              {{ shop.name }}
+              {{ shop.name }} - {{ $t("greeting") }}
             </nuxt-link>
           </div>
           <div class="hidden sm:block sm:ml-6">

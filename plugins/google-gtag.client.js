@@ -34,7 +34,7 @@ export default ({ store, app: { router, context } }, inject) => {
   // Include Google gtag code and inject it (so this.$gtag works in pages/components)
   window.dataLayer = window.dataLayer || [];
   function gtag() {
-    dataLayer.push(arguments);
+    window.dataLayer.push(arguments);
   }
   inject("gtag", gtag);
   gtag("js", new Date());

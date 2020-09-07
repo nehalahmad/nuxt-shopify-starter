@@ -14,10 +14,16 @@
     </responsive-image>
 
     <div class="meta">
-      <h3 class="title" v-html="title" />
-      <div v-if="description" class="description" v-html="description" />
+      <h3 class="title">
+        {{ title }}
+      </h3>
+      <div v-if="description" class="description">
+        {{ description }}
+      </div>
 
-      <div v-if="formattedPrice" class="price" v-text="formattedPrice" />
+      <div v-if="formattedPrice" class="price">
+        {{ formattedPrice }}
+      </div>
     </div>
   </nuxt-link>
 </template>

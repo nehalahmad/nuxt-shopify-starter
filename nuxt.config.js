@@ -26,6 +26,10 @@ export default {
       },
     ],
   },
+  components: [
+    "~/components", // shortcut to { path: '~/components' }
+    { path: "~/components/Global/" },
+  ],
   /*
    ** Customize the progress-bar color
    */
@@ -40,11 +44,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    { src: "~/plugins/global-component-loader.js" },
-    { src: "~/plugins/google-gtag.client.js", mode: "client" },
-    //{ src: "~/plugins/shopify.js", mode: "client" }
-  ],
+  plugins: [{ src: "~/plugins/google-gtag.client.js", mode: "client" }],
   build: {
     /*
      ** You can extend webpack config here
@@ -69,6 +69,7 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    "nuxt-i18n",
     "@nuxtjs/apollo",
     [
       "nuxt-vuex-localstorage",
@@ -78,7 +79,19 @@ export default {
       },
     ],
   ],
-
+  i18n: {
+    locales: ["en", "es"],
+    defaultLocale: "en",
+    vueI18n: {
+      fallbackLocale: "en",
+      messages: {
+        en: {
+          greeting: "Hello world!",
+        },
+        es: { greeting: "¡Hola mundo!" },
+      },
+    },
+  },
   /*
    ** Apollo options. Used for Graph QL queries
    ** See: https://www.apollographql.com/docs/link/links/http.html#options
@@ -118,5 +131,11 @@ export default {
   router: {
     linkExactActiveClass: "exact-active-link",
     linkActiveClass: "active-link",
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: "*",
+        component: resolve(__dirname, "pages/index.vue"),
+      });
+    },
   },
 };

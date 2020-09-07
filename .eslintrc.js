@@ -21,10 +21,12 @@ module.exports = {
   rules: {
     semi: ["error", "always"],
     "no-console": "off",
+    "vue/html-self-closing": "off",
     "vue/max-attributes-per-line": "off",
     "prettier/prettier": ["error", { semi: true, endOfLine: "auto" }],
     "no-unused-vars": ["warn"],
     "comma-dangle": ["error", "only-multiline"],
     "arrow-parens": ["error", "as-needed"],
+    "no-implicit-globals": "error",
   },
 };

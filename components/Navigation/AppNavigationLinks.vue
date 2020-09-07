@@ -1,35 +1,50 @@
 <template>
   <div class="flex">
     <nuxt-link
-      :to="{ name: 'index' }"
+      v-if="$i18n.locale !== 'en'"
+      :to="switchLocalePath('en')"
+      class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+    >
+      English
+    </nuxt-link>
+
+    <nuxt-link
+      v-if="$i18n.locale !== 'es'"
+      :to="switchLocalePath('es')"
+      class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+    >
+      Español
+    </nuxt-link>
+    <nuxt-link
+      :to="localePath('/')"
       class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
       exact
     >
       Home
     </nuxt-link>
     <nuxt-link
-      :to="{ name: 'shop' }"
+      :to="localePath('/shop')"
       class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
       exact
     >
       Shop
     </nuxt-link>
     <nuxt-link
-      :to="{ name: 'products' }"
+      :to="localePath('/products')"
       class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
       exact
     >
       Products
     </nuxt-link>
     <nuxt-link
-      :to="{ name: 'collections' }"
+      :to="localePath('/collections')"
       class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
       exact
     >
       Collections
     </nuxt-link>
     <nuxt-link
-      :to="{ name: 'articles' }"
+      :to="localePath('/articles')"
       class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
       exact
     >
