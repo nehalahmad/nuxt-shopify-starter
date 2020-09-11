@@ -63,7 +63,7 @@ export default {
     },
   },
   watch: {
-    selectedId(newVal, oldVal) {
+    selectedId() {
       this.selectChange();
     },
   },

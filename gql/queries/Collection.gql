@@ -5,9 +5,14 @@ query Collections($first: Int) {
   collections(first: $first) {
     edges {
       node {
-        title
         id
+        title
         handle
+        description
+        image {
+          altText
+          originalSrc
+        }
       }
     }
   }

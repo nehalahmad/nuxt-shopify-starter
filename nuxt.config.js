@@ -44,7 +44,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: "~/plugins/google-gtag.client.js", mode: "client" }],
+  plugins: [
+    { src: "~/plugins/google-gtag.client.js", mode: "client" },
+    { src: "~/plugins/i18n.js" },
+  ],
   build: {
     /*
      ** You can extend webpack config here
@@ -80,17 +83,14 @@ export default {
     ],
   ],
   i18n: {
-    locales: ["en", "es"],
+    locales: [
+      { code: "en", file: "en-US.js" },
+      { code: "es", file: "es-ES.js" },
+    ],
+    lazy: true,
+    langDir: "i18n/",
     defaultLocale: "en",
-    vueI18n: {
-      fallbackLocale: "en",
-      messages: {
-        en: {
-          greeting: "Hello world!",
-        },
-        es: { greeting: "¡Hola mundo!" },
-      },
-    },
+    vueI18n: { fallbackLocale: "en" },
   },
   /*
    ** Apollo options. Used for Graph QL queries

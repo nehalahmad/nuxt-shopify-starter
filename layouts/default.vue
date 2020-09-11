@@ -17,6 +17,9 @@
 // import shopifyMiniCart from "~/components/shopify/MiniCart";
 
 export default {
+  head() {
+    return this.$nuxtI18nSeo();
+  },
   components: {
     // shopifyMiniCart
   },

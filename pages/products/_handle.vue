@@ -48,7 +48,7 @@ export default {
 
   created() {
     this.$store.dispatch(
-      "product/fetchProductByHandle",
+      "product/FETCH_PRODUCT_BY_HANDLE",
       this.$route.params.handle
     );
   },

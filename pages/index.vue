@@ -1,12 +1,31 @@
 <template>
   <section class="home">
-    <p>
-      This is the site homepage. Content could come from WordPress or Shopify
-      here.
-    </p>
-
-    <nuxt-link to="/shop">
-      Go to the shop landing page.
-    </nuxt-link>
+    <h2>Top Categories</h2>
+    <ul>
+      <li v-for="collection in topCollections" :key="collection.node.id">
+        <h3>{{ collection.node.title }}</h3>
+        <h2>{{ collection.node.description }}</h2>
+        <img
+          v-if="collection.node.image"
+          :src="collection.node.image.originalSrc"
+        />
+      </li>
+    </ul>
   </section>
 </template>
+
+<script>
+import { mapGetters } from "vuex";
+
+export default {
+  head: () => ({ title: "This is the title of the layout level title." }),
+  computed: {
+    ...mapGetters({
+      topCollections: "collection/topCollections",
+    }),
+  },
+  created() {
+    this.$store.dispatch("collection/FETCH_TOP_COLLECTIONS", 4);
+  },
+};
+</script>

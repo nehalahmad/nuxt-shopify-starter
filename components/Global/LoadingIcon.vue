@@ -8,7 +8,7 @@
     </div>
   </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 // Pulled from https://loading.io/css/
 .site-loading {
   position: fixed;

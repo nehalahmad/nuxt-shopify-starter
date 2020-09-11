@@ -23,6 +23,17 @@ import _get from "lodash/get";
 import { Products } from "~/gql/queries/Product.gql";
 
 export default {
+  head: () => ({
+    title: "This is the title of the products page.",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Lorem ipsum doler sit amet description in product listing page",
+      },
+    ],
+  }),
   apollo: {
     products: {
       client: "shopify",

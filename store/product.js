@@ -1,6 +1,5 @@
 import Vue from "vue";
 import { getSelectedVariant } from "~/utils/product";
-
 import { ProductByHandle } from "~/gql/queries/Product.gql";
 
 export const state = () => ({
@@ -11,14 +10,14 @@ export const state = () => ({
 });
 
 export const mutations = {
-  setProduct(state, product) {
+  SET_PRODUCT(state, product) {
     state.product = { ...product };
     state.loading = false;
   },
-  setProductOptions(state, { key, value }) {
+  SET_PRODUCT_OPTIONS(state, { key, value }) {
     Vue.set(state.selectedProductOptions, key, value);
   },
-  hydrateProductOptions(state) {
+  HYDRATE_PRODUCT_OPTIONS(state) {
     // When using the nuxt-link tags, vuex store is persisted across
     // page loads.  We need to clear it first.
     state.selectedProductOptions = {};
@@ -30,19 +29,19 @@ export const mutations = {
       Vue.set(state.selectedProductOptions, field.name, field.value);
     });
   },
-  setLoading(state, loading) {
+  SET_LOADING(state, loading) {
     state.loading = loading;
   },
-  setError(state, error) {
+  SET_ERROR(state, error) {
     state.error = error;
     state.loading = false;
   },
 };
 
 export const actions = {
-  async fetchProductByHandle({ commit }, handle) {
+  async FETCH_PRODUCT_BY_HANDLE({ commit }, handle) {
     try {
-      commit("setLoading", true);
+      commit("SET_LOADING", true);
 
       let client = this.app.apolloProvider.clients.shopify;
 
@@ -53,11 +52,11 @@ export const actions = {
         },
       });
       if (response.networkStatus === 7) {
-        commit("setProduct", response.data.productByHandle);
-        commit("hydrateProductOptions");
+        commit("SET_PRODUCT", response.data.productByHandle);
+        commit("HYDRATE_PRODUCT_OPTIONS");
       }
     } catch (err) {
-      commit("setError", err);
+      commit("SET_ERROR", err);
     }
   },
 };

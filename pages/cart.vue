@@ -4,10 +4,9 @@
       <p>
         Need to build this
       </p>
-
-      <a :href="$store.state.shopify.checkout.webUrl" target="_blank"
-        >Checkout</a
-      >
+      <a :href="$store.state.shopify.checkout.webUrl" target="_blank">
+        Checkout
+      </a>
     </section>
   </client-only>
 </template>

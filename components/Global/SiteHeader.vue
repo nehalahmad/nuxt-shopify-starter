@@ -5,7 +5,7 @@
         <div class="flex items-center">
           <div class="site-name-text">
             <nuxt-link
-              :to="{ name: 'index' }"
+              :to="localePath('/')"
               class="outline-none"
               active-class=""
               exact
@@ -50,6 +50,8 @@ export default {
 
 <style scoped lang="scss">
 .site-name-text {
-  @apply .text-white .flex-shrink-0 .capitalize;
+  @apply text-white;
+  @apply flex-shrink-0;
+  @apply capitalize;
 }
 </style>

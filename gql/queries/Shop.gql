@@ -7,3 +7,32 @@ query Shop {
     }
   }
 }
+
+# Building Home query
+query HomePage($first: Int) {
+  shop {
+    name
+    primaryDomain {
+      url
+      host
+    }
+  }
+  shopLocales {
+    locale
+    primary
+  }
+  collections(first: $first) {
+    edges {
+      node {
+        id
+        title
+        handle
+        description
+        image {
+          altText
+          originalSrc
+        }
+      }
+    }
+  }
+}

@@ -186,13 +186,13 @@ export default {
   },
   watch: {
     // Update loaded state if new src set
-    parsedVideoUrl(newVal, oldVal) {
+    parsedVideoUrl(newVal) {
       if (newVal) {
         Vue.set(this.loadedStatus, "video", false);
       }
     },
     // Update loaded state if new src set
-    parsedSrc(newVal, oldVal) {
+    parsedSrc(newVal) {
       if (newVal) {
         Vue.set(this.loadedStatus, "image", false);
       }
@@ -230,7 +230,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .responsive-image {
   .sizer {
     position: relative;
