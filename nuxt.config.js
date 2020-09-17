@@ -44,10 +44,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    { src: "~/plugins/google-gtag.client.js", mode: "client" },
-    { src: "~/plugins/i18n.js" },
-  ],
+  plugins: [{ src: "~/plugins/google-gtag.client.js", mode: "client" }],
   build: {
     /*
      ** You can extend webpack config here
@@ -67,12 +64,15 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ["@nuxtjs/tailwindcss"],
+  buildModules: [
+    "~/modules/crawler",
+    "~/modules/static",
+    "@nuxtjs/tailwindcss",
+  ],
   /*
    ** Nuxt.js modules
    */
   modules: [
-    "nuxt-i18n",
     "@nuxtjs/apollo",
     [
       "nuxt-vuex-localstorage",
@@ -81,17 +81,8 @@ export default {
         mode: "debug",
       },
     ],
+    "@nuxtjs/prismic",
   ],
-  i18n: {
-    locales: [
-      { code: "en", file: "en-US.js" },
-      { code: "es", file: "es-ES.js" },
-    ],
-    lazy: true,
-    langDir: "i18n/",
-    defaultLocale: "en",
-    vueI18n: { fallbackLocale: "en" },
-  },
   /*
    ** Apollo options. Used for Graph QL queries
    ** See: https://www.apollographql.com/docs/link/links/http.html#options
@@ -122,6 +113,13 @@ export default {
         persisting: false,
       },
     },
+  },
+  prismic: {
+    // endpoint: "https://nagarro.cdn.prismic.io/api/v2",
+    // linkResolver: "~/plugins/link-resolver",
+    // htmlSerializer: "~/plugins/html-serializer",
+    endpoint: "https://prismic-vuejs-showcase.prismic.io/api/v2",
+    preview: "/preview/", // because we use nuxt generate
   },
   pageTransition: { name: "fade", mode: "out-in" },
   serverMiddleware: [bodyParser.json(), "@api"],

@@ -18,7 +18,6 @@
 import { mapGetters } from "vuex";
 
 export default {
-  head: () => ({ title: "This is the title of the layout level title." }),
   computed: {
     ...mapGetters({
       topCollections: "collection/topCollections",
@@ -27,5 +26,6 @@ export default {
   created() {
     this.$store.dispatch("collection/FETCH_TOP_COLLECTIONS", 4);
   },
+  head: () => ({ title: "This is the title of the layout level title." }),
 };
 </script>

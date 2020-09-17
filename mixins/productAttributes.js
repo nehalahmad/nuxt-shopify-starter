@@ -20,16 +20,17 @@ export const savePercentageOff = variant => {
 };
 
 // TODO: Implement isPopular Logic
-export const isPopular = variant => {
+export const isPopular = () => {
   return Math.random() >= 0.5;
 };
 
 // TODO: Implement hasFastDispatch Logic
-export const hasFastDispatch = variant => {
+export const hasFastDispatch = () => {
   return Math.random() >= 0.5;
 };
 
 // TODO: Implement hasFreeShipping Logic
-export const hasFreeShipping = variant => {
+// use variant as input argument
+export const hasFreeShipping = () => {
   return Math.random() >= 0.5;
 };

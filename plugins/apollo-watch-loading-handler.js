@@ -1,4 +1,5 @@
-export default (isLoading, countModifier, nuxtContext) => {
-  loading += countModifier;
-  console.log("Global loading", loading, countModifier);
+// nuxtConfig
+export default (isLoading, countModifier) => {
+  // loading += countModifier;
+  console.log("Global loading", isLoading, countModifier);
 };

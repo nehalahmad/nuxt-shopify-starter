@@ -6,5 +6,5 @@
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
   "proseWrap": "always",
-  "arrowParans": "always"
+  "arrowParens": "avoid"
 }

@@ -4,13 +4,8 @@
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
           <div class="site-name-text">
-            <nuxt-link
-              :to="localePath('/')"
-              class="outline-none"
-              active-class=""
-              exact
-            >
-              {{ shop.name }} - {{ $t("greeting") }}
+            <nuxt-link to="/" class="outline-none" active-class="" exact>
+              {{ shop.name }}
             </nuxt-link>
           </div>
           <div class="hidden sm:block sm:ml-6">

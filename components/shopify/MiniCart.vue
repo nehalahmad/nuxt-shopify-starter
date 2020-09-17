@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import _get from "lodash/get";
+// import _get from "lodash/get";
 
 export default {
   props: {
