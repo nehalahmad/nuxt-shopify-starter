@@ -128,6 +128,7 @@ export default {
     NumerotedItems,
     TextBlock,
   },
+  data: () => ({}),
   async asyncData({ $prismic }) {
     const home = await $prismic.api.getSingle("homepage", { graphQuery });
     console.log("[index]: line #68");
