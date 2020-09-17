@@ -85,12 +85,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.shopify-price {
-  .sale {
-  }
-  .price {
-  }
-}
-</style>

@@ -20,9 +20,8 @@ export default {
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
+        href: "https://fonts.googleapis.com/css?family=PT+Mono",
         rel: "stylesheet",
-        href:
-          "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap",
       },
     ],
   },
@@ -37,7 +36,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["~assets/css/tailwind.css"],
+  css: [
+    "~/assets/css/tailwind.css",
+    "~/assets/scss/reset.scss",
+    "~/assets/scss/main.scss",
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -116,7 +119,6 @@ export default {
   },
   prismic: {
     // endpoint: "https://nagarro.cdn.prismic.io/api/v2",
-    // linkResolver: "~/plugins/link-resolver",
     // htmlSerializer: "~/plugins/html-serializer",
     endpoint: "https://prismic-vuejs-showcase.prismic.io/api/v2",
     preview: "/preview/", // because we use nuxt generate

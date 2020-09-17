@@ -2,14 +2,11 @@
 <template>
   <div class="flex min-h-screen flex-col">
     <site-header />
+    <!-- <shopify-mini-cart /> -->
     <nuxt class="flex-1" />
     <!-- <notifications /> -->
     <site-footer class="mt-auto" />
   </div>
-  <!-- <main class="container"> -->
-  <!-- <shopify-mini-cart /> -->
-  <!-- <nuxt /> -->
-  <!-- </main> -->
 </template>
 
 <script>
