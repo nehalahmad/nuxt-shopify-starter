@@ -81,27 +81,9 @@
 </template>
 
 <script>
-const graphQuery = `{
-product {
-  ...productFields
-  related_products {
-    ...related_productsFields
-    product1 {
-      product_image
-      product_name
-      sub_title
-    }
-  }
-}
-}`;
-
 export default {
-  async asyncData({ params, $prismic }) {
-    const product = await $prismic.api.getByUID("product", params.uid, {
-      graphQuery,
-    });
-
-    return { product };
+  async asyncData({ params, $cmsPrismic }) {
+    return $cmsPrismic.fetchProduct(params.uid);
   },
   data: () => ({
     product: null,

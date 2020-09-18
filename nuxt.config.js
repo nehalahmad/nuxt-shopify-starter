@@ -25,10 +25,7 @@ export default {
       },
     ],
   },
-  components: [
-    "~/components", // shortcut to { path: '~/components' }
-    { path: "~/components/Global/" },
-  ],
+  components: [{ path: "~/components/Global/" }],
   /*
    ** Customize the progress-bar color
    */
@@ -44,10 +41,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: [{ src: "~/plugins/google-gtag.client.js", mode: "client" }],
+  plugins: [
+    "~/plugins/global-component-loader.js",
+    "~/plugins/cms-prismic.js",
+    { src: "~/plugins/google-gtag.client.js", mode: "client" },
+  ],
   build: {
     /*
      ** You can extend webpack config here

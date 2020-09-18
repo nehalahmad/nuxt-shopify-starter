@@ -24,35 +24,11 @@
 
     <div v-if="home.data.body" class="homepage-slices-wrapper">
       <div v-for="(slice, index) in home.data.body" :key="index">
-        <div
-          v-if="slice.slice_type === 'cta_banner'"
-          class="homepage-slice-wrapper"
-        >
-          <cta-banner :slice="slice" />
-        </div>
-        <div
-          v-if="slice.slice_type === 'featured_items'"
-          class="homepage-slice-wrapper"
-        >
-          <products-grid :slice="slice" />
-        </div>
-        <div
-          v-if="slice.slice_type === 'big_bullet_item'"
-          class="homepage-slice-wrapper"
-        >
-          <numeroted-items :slice="slice" />
-        </div>
-        <div
-          v-if="slice.slice_type === 'separator'"
-          class="homepage-slice-wrapper"
-        >
-          <separator />
-        </div>
-        <div
-          v-if="slice.slice_type === 'text_block'"
-          class="homepage-slice-wrapper"
-        >
-          <text-block :slice="slice" />
+        <div class="homepage-slice-wrapper">
+          <component
+            :is="currentComponent(slice.slice_type)"
+            :slice="slice"
+          ></component>
         </div>
       </div>
     </div>
@@ -60,80 +36,23 @@
 </template>
 
 <script>
-import ProductsGrid from "~/components/slices/ProductsGrid.vue";
-import CtaBanner from "~/components/slices/CtaBanner.vue";
-import NumerotedItems from "~/components/slices/NumerotedItems.vue";
-import TextBlock from "~/components/slices/TextBlock.vue";
-
-const graphQuery = `
-{
-  homepage {
-    ...homepageFields
-    body {
-      ... on text_block {
-        non-repeat {
-          ...non-repeatFields
-        }
-        repeat {
-          ...repeatFields
-        }
-      }
-      ... on separator {
-        non-repeat {
-          ...non-repeatFields
-        }
-        repeat {
-          ...repeatFields
-        }
-      }
-      ... on cta_banner {
-        non-repeat {
-          ...non-repeatFields
-        }
-        repeat {
-          ...repeatFields
-        }
-      }
-      ... on big_bullet_item {
-        non-repeat {
-          ...non-repeatFields
-        }
-        repeat {
-          ...repeatFields
-        }
-      }
-      ... on featured_items {
-        non-repeat {
-          ...non-repeatFields
-        }
-        repeat {
-          link_to_product {
-            product_image
-            product_name
-            sub_title
-          }
-        }
-      }
-    }
-  }
-}
-`;
-
-// import { blogDto } from "~/models/models";
-
 export default {
-  components: {
-    ProductsGrid,
-    CtaBanner,
-    NumerotedItems,
-    TextBlock,
+  async asyncData({ $cmsPrismic }) {
+    return await $cmsPrismic.fetchHomepage();
   },
-  data: () => ({}),
-  async asyncData({ $prismic }) {
-    const home = await $prismic.api.getSingle("homepage", { graphQuery });
-    console.log("[index]: line #68");
-    console.log(home);
-    return { home };
+  methods: {
+    currentComponent: sliceType => {
+      if (sliceType === "cta_banner") {
+        return "cta-banner";
+      } else if (sliceType === "featured_items") {
+        return "products-grid";
+      } else if (sliceType === "big_bullet_item") {
+        return "numeroted-items";
+      } else if (sliceType === "text_block") {
+        return "text-block";
+      }
+      return sliceType;
+    },
   },
 };
 </script>

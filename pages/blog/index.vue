@@ -33,17 +33,8 @@
 
 <script>
 export default {
-  async asyncData({ $prismic }) {
-    const posts = await $prismic.api.query(
-      $prismic.predicates.at("document.type", "blog_post"),
-      { pageSize: 50 }
-    );
-    const blogHome = await $prismic.api.getSingle("blog_home");
-
-    return {
-      blogHome,
-      posts: posts.results,
-    };
+  async asyncData({ $cmsPrismic }) {
+    return $cmsPrismic.fetchBlogs();
   },
   head() {
     return {

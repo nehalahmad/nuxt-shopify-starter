@@ -35,24 +35,9 @@
 </template>
 
 <script>
-const graphQuery = `{
-  blog_post {
-    ...blog_postFields
-    author {
-      name
-      bio
-      picture
-    }
-  }
-}`;
-
 export default {
-  async asyncData({ params, $prismic }) {
-    const blogpost = await $prismic.api.getByUID("blog_post", params.uid, {
-      graphQuery,
-    });
-
-    return { blogpost };
+  async asyncData({ params, $cmsPrismic }) {
+    return await $cmsPrismic.fetchBlog(params.uid);
   },
   head() {
     return {

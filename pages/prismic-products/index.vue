@@ -39,18 +39,8 @@
 
 <script>
 export default {
-  async asyncData({ $prismic, error }) {
-    console.log(error);
-    const productList = await $prismic.api.query(
-      $prismic.predicates.at("document.type", "product"),
-      { pageSize: 50 }
-    );
-    const productsDocument = await $prismic.api.getSingle("products");
-
-    return {
-      productList: productList.results,
-      productsDocument,
-    };
+  async asyncData({ $cmsPrismic }) {
+    return await $cmsPrismic.fetchProducts();
   },
   head() {
     return {
