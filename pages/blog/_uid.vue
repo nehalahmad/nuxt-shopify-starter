@@ -4,18 +4,15 @@
     <article class="blog-post-article">
       <div class="blog-post-inner">
         <div class="blog-post-image-wrapper">
-          <prismic-image class="blog-post-image" :field="blogpost.data.image" />
+          <cms-image class="blog-post-image" :field="blogpost.data.image" />
         </div>
-        <prismic-rich-text
-          class="blog-post-title"
-          :field="blogpost.data.title"
-        />
-        <prismic-rich-text
+        <cms-rich-text class="blog-post-title" :field="blogpost.data.title" />
+        <cms-rich-text
           class="blog-post-rich-content"
           :field="blogpost.data.rich_content"
         />
         <div class="blog-post-author-wrapper">
-          <prismic-image
+          <cms-image
             v-if="blogpost.data.author.data"
             class="blog-post-author-picture"
             :field="blogpost.data.author.data.picture"

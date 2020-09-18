@@ -5,16 +5,16 @@
       <section>
         <div class="l-wrapper">
           <div class="product-hero-inner">
-            <prismic-image
+            <cms-image
               class="product-hero-image"
               :field="product.data.product_image"
             />
             <div class="product-hero-content">
-              <prismic-rich-text
+              <cms-rich-text
                 class="product-hero-name"
                 :field="product.data.product_name"
               />
-              <prismic-rich-text
+              <cms-rich-text
                 class="product-hero-rich-content"
                 :field="product.data.rich_content"
               />
@@ -32,11 +32,11 @@
       </section>
       <section class="product-description">
         <div class="l-wrapper">
-          <prismic-rich-text
+          <cms-rich-text
             class="product-description-title"
             :field="product.data.title"
           />
-          <prismic-rich-text
+          <cms-rich-text
             class="product-description-content"
             :field="product.data.product_description"
           />
@@ -48,7 +48,7 @@
       <section>
         <div class="l-wrapper">
           <header class="products-grid-header">
-            <prismic-rich-text
+            <cms-rich-text
               class="products-grid-header-title"
               :field="product.data.related_products_title"
             />
@@ -61,7 +61,7 @@
             class="products-grid-item-wrapper"
           >
             <prismic-link :field="item.product1">
-              <prismic-image
+              <cms-image
                 class="products-grid-item-image"
                 :field="item.product1.data.product_image"
               />

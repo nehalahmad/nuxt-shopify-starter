@@ -9,7 +9,7 @@
           class="blog-home-post-wrapper"
         >
           <article>
-            <prismic-image class="blog-home-post-image" :field="data.image" />
+            <cms-image class="blog-home-post-image" :field="data.image" />
             <p class="blog-home-post-title">
               {{ $prismic.asText(data.title) }}
             </p>

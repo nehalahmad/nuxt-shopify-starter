@@ -4,7 +4,7 @@
     <section class="products-section">
       <div class="l-wrapper">
         <header class="products-grid-header">
-          <prismic-rich-text
+          <cms-rich-text
             class="products-grid-header-title"
             :field="productsDocument.data.title"
           />
@@ -20,7 +20,7 @@
             class="product"
             :to="{ name: 'prismic-products-uid', params: { uid: product.uid } }"
           >
-            <prismic-image
+            <cms-image
               class="products-grid-item-image"
               :field="product.data.product_image"
             />
