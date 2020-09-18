@@ -44,7 +44,7 @@ Note that for the Shopify API there is no "cart", they refer to that as a "Check
 ### Optional files
 
 1.  The pages in `~/pages` are useful, but are technically optional.
-1.  All the components in `~/components/shopify` are useful, but are technically optional.
+1.  All the components in `~/components/Shopify` are useful, but are technically optional.
 
 ## TODO list
 

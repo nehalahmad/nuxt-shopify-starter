@@ -58,10 +58,10 @@ import _get from "lodash/get";
 import { ProductByHandle } from "~/gql/queries/Product.gql";
 
 // Components
-import shopifyPrice from "~/components/shopify/Price";
-import shopifyAddToCart from "~/components/shopify/AddToCart";
-import shopifySelectVariant from "~/components/shopify/SelectVariant";
-import shopifySelectQuantity from "~/components/shopify/SelectQuantity";
+import shopifyPrice from "~/components/Shopify/Price";
+import shopifyAddToCart from "~/components/Shopify/AddToCart";
+import shopifySelectVariant from "~/components/Shopify/SelectVariant";
+import shopifySelectQuantity from "~/components/Shopify/SelectQuantity";
 
 export default {
   components: {

@@ -11,7 +11,7 @@
 
 <script>
 // Components
-// import shopifyMiniCart from "~/components/shopify/MiniCart";
+// import shopifyMiniCart from "~/components/Shopify/MiniCart";
 
 export default {
   components: {

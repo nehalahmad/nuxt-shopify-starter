@@ -28,7 +28,7 @@ import _get from "lodash/get";
 import { CollectionByHandle } from "~/gql/queries/Collection.gql";
 
 // Components
-import shopifyBlockProduct from "~/components/shopify/BlockProduct";
+import shopifyBlockProduct from "~/components/Shopify/BlockProduct";
 
 export default {
   transition: "fade",
