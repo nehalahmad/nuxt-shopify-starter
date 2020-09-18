@@ -19,13 +19,12 @@
                 :field="product.data.rich_content"
               />
               <div class="product-hero-button-wrapper">
-                <prismic-link
+                <cms-link
                   class="a-button a-button--filled"
                   :field="product.data.button_link"
+                  :content="$prismic.asText(product.data.button_label)"
                   @click.prevent="handleClickAddCart"
-                >
-                  {{ $prismic.asText(product.data.button_label) }}
-                </prismic-link>
+                />
               </div>
             </div>
           </div>

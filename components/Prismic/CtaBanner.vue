@@ -1,25 +1,24 @@
 <template>
   <section>
     <div class="cta-banner-inner">
-      <prismic-image
-        class="cta-banner-image"
-        :field="slice.primary.image_banner"
-      />
+      <cms-image class="cta-banner-image" :field="slice.primary.image_banner" />
       <div class="cta-banner-content">
         <div class="cta-banner-box">
-          <prismic-rich-text
+          <cms-rich-text
             class="cta-banner-title"
             :field="slice.primary.banner_title"
           />
-          <prismic-rich-text
+          <cms-rich-text
             class="cta-banner-text"
             :field="slice.primary.banner_text"
           />
         </div>
         <div class="cta-banner-link-wrapper">
-          <prismic-link class="cta-banner-link" :field="slice.primary.cta_link">
-            {{ slice.primary.cta_label }}
-          </prismic-link>
+          <cms-link
+            class="cta-banner-link"
+            :field="slice.primary.cta_link"
+            :content="slice.primary.cta_label"
+          />
         </div>
       </div>
     </div>

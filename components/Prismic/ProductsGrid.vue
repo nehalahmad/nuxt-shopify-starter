@@ -2,14 +2,16 @@
   <section>
     <div class="l-wrapper">
       <header class="products-grid-header">
-        <prismic-rich-text
+        <cms-rich-text
           class="products-grid-header-title"
           :field="slice.primary.section_title"
         />
         <div class="products-grid-header-button-wrapper">
-          <prismic-link class="a-button" :field="slice.primary.button_link">
-            {{ $prismic.asText(slice.primary.button_label) }}
-          </prismic-link>
+          <cms-link
+            class="a-button"
+            :field="slice.primary.button_link"
+            :content="$prismic.asText(slice.primary.button_label)"
+          />
         </div>
       </header>
     </div>
@@ -20,7 +22,7 @@
         class="products-grid-item-wrapper"
       >
         <prismic-link :field="item.link_to_product">
-          <prismic-image
+          <cms-image
             class="products-grid-item-image"
             :field="item.link_to_product.data.product_image"
           />

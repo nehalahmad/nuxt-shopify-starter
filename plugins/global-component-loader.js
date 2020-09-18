@@ -3,7 +3,7 @@ import Vue from "vue";
 import _kebabCase from "lodash/kebabCase";
 
 const components = require.context(
-  "~/components/Global/slices",
+  "~/components/Prismic",
   false,
   /[A-Z]\w+\.(vue)$/
 );

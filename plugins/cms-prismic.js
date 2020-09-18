@@ -1,3 +1,6 @@
+/**
+ * A CMS prismic
+ */
 import { HOMEPAGE_QUERY } from "~/gql/queries/prismic/Homepage.js";
 import { PRODUCT_QUERY } from "~/gql/queries/prismic/Product.js";
 import { BLOG_QUERY } from "~/gql/queries/prismic/Blog.js";

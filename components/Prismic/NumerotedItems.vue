@@ -2,14 +2,14 @@
   <section>
     <div class="l-wrapper">
       <header class="numeroted-items-header">
-        <prismic-rich-text
+        <cms-rich-text
           class="numeroted-items-header-title"
           :field="slice.primary.title_section"
         />
       </header>
     </div>
     <div class="numeroted-items-items-wrapper">
-      <prismic-rich-text
+      <cms-rich-text
         v-for="(item, index) in slice.items"
         :key="index"
         class="numeroted-items-item-wrapper"

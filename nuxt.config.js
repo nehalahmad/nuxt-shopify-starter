@@ -119,7 +119,7 @@ export default {
     // endpoint: "https://nagarro.cdn.prismic.io/api/v2",
     // htmlSerializer: "~/plugins/html-serializer",
     endpoint: "https://prismic-vuejs-showcase.prismic.io/api/v2",
-    preview: "/preview/", // because we use nuxt generate
+    // preview: "/preview/", // because we use nuxt generate
   },
   pageTransition: { name: "fade", mode: "out-in" },
   serverMiddleware: [bodyParser.json(), "@api"],

@@ -2,11 +2,8 @@
   <section>
     <div class="l-wrapper">
       <div class="text-block-inner">
-        <prismic-rich-text
-          class="text-block-title"
-          :field="slice.primary.title1"
-        />
-        <prismic-rich-text
+        <cms-rich-text class="text-block-title" :field="slice.primary.title1" />
+        <cms-rich-text
           class="text-block-richtext"
           :field="slice.primary.paragraph"
         />
