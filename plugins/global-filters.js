@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { currency } from "~/utilities/currency";
+import { currency } from "~/utils/currency";
 
 /**
  * Register Vue Filters

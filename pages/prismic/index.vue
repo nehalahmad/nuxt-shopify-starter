@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import map from "~/utils/prismic/component-mapper.js";
+import map from "~/utils/component-mapper.js";
 
 export default {
   async asyncData({ $cmsPrismic }) {

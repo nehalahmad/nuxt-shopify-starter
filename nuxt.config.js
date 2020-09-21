@@ -42,9 +42,11 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    "~/plugins/global-component-loader.js",
-    "~/plugins/cms-prismic.js",
-    { src: "~/plugins/google-gtag.client.js", mode: "client" },
+    "~/plugins/bus", // register event bus for cross component communication
+    "~/plugins/global-component-loader" /* script to register all global components */,
+    "~/plugins/cms-prismic" /* register cms prismic plugin  */,
+    "~/plugins/global-filters" /* register cms prismic plugin  */,
+    { src: "~/plugins/google-gtag.client", mode: "client" },
   ],
   build: {
     /*
@@ -119,6 +121,8 @@ export default {
     // endpoint: "https://nagarro.cdn.prismic.io/api/v2",
     // htmlSerializer: "~/plugins/html-serializer",
     endpoint: "https://prismic-vuejs-showcase.prismic.io/api/v2",
+    linkResolver: "~/plugins/link-resolver",
+    htmlSerializer: "~/plugins/html-serializer",
     // preview: "/preview/", // because we use nuxt generate
   },
   pageTransition: { name: "fade", mode: "out-in" },

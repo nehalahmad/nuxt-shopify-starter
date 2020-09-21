@@ -1,6 +1,6 @@
 <template>
   <prismic-link class="cta-banner-link" :field="field">
-    {{ content }}
+    {{ $slots.default }}
   </prismic-link>
 </template>
 
